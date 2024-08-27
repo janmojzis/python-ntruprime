@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+
+helpstr = "'''\n"
+with open('README.md') as f:
+    helpstr += f.read()
+helpstr += "'''\n"
+
+with open('src/ntruprime/__init__.py', 'w') as f:
+    f.write(helpstr)
+    f.write(f'\n')
+    for size in '653','761','857','953','1013','1277':
+        f.write(f'from .kem import sntrup{size}\n')

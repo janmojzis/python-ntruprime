@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+
+for size in '653','761','857','953','1013','1277':
+    with open(f'tests/test_sntrup{size}.py', 'w') as f:
+        template = f'''from ntruprime import sntrup{size}
+
+
+def test_sntrup{size}c():
+    pk, sk = sntrup{size}.keypair()
+    c, k1 = sntrup{size}.enc(pk)
+    k2 = sntrup{size}.dec(c, sk)
+    assert (k1 == k2)
+'''
+        f.write(template)
