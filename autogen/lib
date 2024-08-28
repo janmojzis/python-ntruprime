@@ -15,5 +15,5 @@ def _check_input(x, xlen, name):
         raise ValueError(f'{name} length must have exactly {xlen} bytes')
 """ % (project)
 
-with open('src/ntruprime/_lib.py', 'w') as f:
+with open(f'src/{project}/_lib.py', 'w') as f:
     f.write(lib)
