@@ -42,7 +42,7 @@ class _KEM:
         c = _ct.create_string_buffer(self.CIPHERTEXTBYTES)
         k = _ct.create_string_buffer(self.BYTES)
         pk = _ct.create_string_buffer(pk)
-        self._c_enc(c, k, pk):
+        self._c_enc(c, k, pk)
         return c.raw, k.raw
 
     def dec(self, c: bytes, sk: bytes) -> bytes:
@@ -59,7 +59,7 @@ class _KEM:
         k = _ct.create_string_buffer(self.BYTES)
         c = _ct.create_string_buffer(c)
         sk = _ct.create_string_buffer(sk)
-        self._c_dec(k, c, sk):
+        self._c_dec(k, c, sk)
         return k.raw
 
 
