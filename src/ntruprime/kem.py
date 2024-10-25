@@ -12,10 +12,10 @@ class _KEM:
         self._c_keypair.restype = None
         self._c_enc = getattr(_lib, '%s_enc' % self._prefix)
         self._c_enc.argtypes = [_ct.c_char_p, _ct.c_char_p, _ct.c_char_p]
-        self._c_enc.restype = _ct.c_int
+        self._c_enc.restype = None
         self._c_dec = getattr(_lib, '%s_dec' % self._prefix)
         self._c_dec.argtypes = [_ct.c_char_p, _ct.c_char_p, _ct.c_char_p]
-        self._c_dec.restype = _ct.c_int
+        self._c_dec.restype = None
 
     def keypair(self) -> _Tuple[bytes, bytes]:
         '''
@@ -42,8 +42,7 @@ class _KEM:
         c = _ct.create_string_buffer(self.CIPHERTEXTBYTES)
         k = _ct.create_string_buffer(self.BYTES)
         pk = _ct.create_string_buffer(pk)
-        if self._c_enc(c, k, pk):
-            raise Exception('enc failed')
+        self._c_enc(c, k, pk):
         return c.raw, k.raw
 
     def dec(self, c: bytes, sk: bytes) -> bytes:
@@ -60,8 +59,7 @@ class _KEM:
         k = _ct.create_string_buffer(self.BYTES)
         c = _ct.create_string_buffer(c)
         sk = _ct.create_string_buffer(sk)
-        if self._c_dec(k, c, sk):
-            raise Exception('dec failed')
+        self._c_dec(k, c, sk):
         return k.raw
 
 
