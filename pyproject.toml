@@ -15,7 +15,7 @@ version = '20241021.2'
 
 [tool.pytest.ini_options]
 minversion = '6.0'
-addopts = '-ra -q'
+addopts = '-ra -v'
 testpaths = [
     'tests',
 ]
