@@ -1,4 +1,5 @@
-Python wrapper around implementation of the Streamlined NTRU Prime cryptosystem.
+Python wrapper around [ntruprime](https://libntruprime.cr.yp.to) library,
+wrapper around the Streamlined NTRU Prime cryptosystem.
 
 To access the Python functions provided by ntruprime, import the library (for, e.g., sntrup1277):
 
